@@ -10,7 +10,7 @@ export default function MainContainer() {
     <div
       className={clsx(
         isValidName && 'mt-8',
-        'rounded-2xl bg-orange-700/[0.5] p-6 backdrop-blur-sm'
+        'rounded-2xl bg-orange-700/50 p-6 backdrop-blur-sm'
       )}
     >
       {!isValidName ? (
