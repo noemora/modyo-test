@@ -1,10 +1,13 @@
 {
   "arrowParens": "avoid",
   "bracketSpacing": true,
-  "endOfLine": "lf",
+  "endOfLine": "auto",
   "htmlWhitespaceSensitivity": "ignore",
   "jsxSingleQuote": false,
-  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+  "plugins": [
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
+  ],
   "printWidth": 80,
   "quoteProps": "as-needed",
   "semi": true,

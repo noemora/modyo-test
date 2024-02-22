@@ -10,6 +10,7 @@ export default function CardList() {
   } = useQuery({
     queryKey: ['cards'],
     queryFn: () => getCards(),
+    refetchOnWindowFocus: false,
   });
 
   if (isPending) {
