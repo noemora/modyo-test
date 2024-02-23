@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 
-export default function Score({ moves, success, miss }) {
+export default function Score({ movesCount, successCount, missCount }) {
   return (
     <div className="mb-4 flex justify-center gap-x-10">
-      <div>Moves: {moves}</div>
-      <div>Successes: {success}</div>
-      <div>Misses: {miss}</div>
+      <div>Moves: {movesCount}</div>
+      <div>Successes: {successCount}</div>
+      <div>Misses: {missCount}</div>
     </div>
   );
 }
 
 Score.propTypes = {
-  moves: PropTypes.number.isRequired,
-  success: PropTypes.number.isRequired,
-  miss: PropTypes.number.isRequired,
+  movesCount: PropTypes.number.isRequired,
+  successCount: PropTypes.number.isRequired,
+  missCount: PropTypes.number.isRequired,
 };

@@ -1,7 +1,12 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-export default function CardImage({ flipAnimation, src, altText }) {
+export default function CardImage({
+  flipAnimation,
+  src,
+  altText,
+  // blockAnimation,
+}) {
   return (
     <img
       className={clsx(
@@ -21,4 +26,5 @@ CardImage.propTypes = {
   flipAnimation: PropTypes.bool,
   src: PropTypes.string,
   altText: PropTypes.string,
+  blockAnimation: PropTypes.bool,
 };
