@@ -12,10 +12,7 @@ export default function CardList({
 }) {
   const [flippedCards, setFlippedCards] = useState([]);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isMiss, setIsMiss] = useState(false);
-  // const [successCards, setSuccessCards] = useState([]);
-
-  console.log(flippedCards, 'flippedCards');
+  const [successCards, setSuccessCards] = useState([]);
 
   const {
     isPending,
@@ -37,29 +34,24 @@ export default function CardList({
       if (flippedCards[0] === flippedCards[1]) {
         setSuccessCount(prev => prev + 1);
         setIsSuccess(true);
-        // setSuccessCards(prev => [...prev, ...flippedCards]);
+        setSuccessCards([...successCards, ...flippedCards]);
       } else {
         setMissCount(prev => prev + 1);
-        setIsMiss(true);
       }
-      setFlippedCards([]);
       setMovesCount(prev => prev + 1);
     }
     return () => {
-      setIsMiss(false);
       setIsSuccess(false);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     flippedCards,
     setMovesCount,
     setSuccessCount,
     setMissCount,
     setIsSuccess,
-    setIsMiss,
+    setSuccessCards,
   ]);
-
-  console.log(isMiss, 'isMiss');
-  console.log(isSuccess, 'isSuccess');
 
   if (isPending) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -68,14 +60,13 @@ export default function CardList({
     <div className="flex max-w-4xl flex-wrap justify-center gap-3">
       {cardList.map(({ fields }, index) => (
         <Card
-          key={index}
+          key={`${index}`}
           imgSrc={fields.image.url}
           altText={fields.image.title}
           cardsFlipped={flippedCards}
           setCardFlipped={setFlippedCards}
-          isMiss={isMiss}
           isSuccess={isSuccess}
-          // successCards={successCards}
+          successCards={successCards}
         />
       ))}
     </div>

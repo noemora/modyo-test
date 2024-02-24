@@ -20,7 +20,7 @@ export default function Welcome({ setIsValidName }) {
 
   return (
     <div className="flex w-fit flex-col items-center gap-4 font-mono">
-      <h1 className="animate-flip-x animate-delay-1000 text-5xl font-bold tracking-tight">
+      <h1 className="animate-flip-x text-5xl font-bold tracking-tight animate-delay-900">
         Welcome to Memory Game
       </h1>
       <form className="flex min-w-80 flex-col gap-4" onSubmit={handleSubmit}>

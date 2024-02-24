@@ -2,20 +2,20 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import questionMark from '../assets/question-mark.jpg';
+import tick from '../assets/tick.avif';
 import CardImage from './CardImage';
 
 export default function Card({
-  id,
+  key,
   imgSrc,
   altText,
   cardsFlipped,
   setCardFlipped,
-  isMiss,
-  // isSuccess,
-  // successCards,
+  isSuccess,
+  successCards,
 }) {
   const [flipAnimation, setFlipAnimation] = useState(false);
-  // const [blockAnimation, setBlockAnimation] = useState(false);
+  const [blockAnimation, setBlockAnimation] = useState(false);
   const [clicked, setClicked] = useState(false);
 
   const handleCardClick = () => {
@@ -26,53 +26,57 @@ export default function Card({
     }
   };
 
-  // useEffect(() => {
-  //   if (isSuccess) {
-  //     setBlockAnimation(true);
-  //   }
-  // }, [isSuccess]);
-
   useEffect(() => {
-    if (isMiss) {
+    if (cardsFlipped.length === 2) {
+      setBlockAnimation(true);
       setTimeout(() => {
         setFlipAnimation(false);
         setClicked(false);
+        setCardFlipped([]);
       }, 1000);
     }
-  }, [isMiss]);
+    if (cardsFlipped.length === 0) {
+      setBlockAnimation(false);
+    }
+  }, [cardsFlipped, setCardFlipped, isSuccess]);
 
   return (
     <div
-      key={id}
+      key={key}
       className={clsx(
         clicked && 'pointer-events-none',
+        successCards.includes(altText) && 'pointer-events-none',
         'h-24 cursor-pointer overflow-hidden rounded shadow-sm'
       )}
-      onClick={handleCardClick}
+      onClick={!blockAnimation ? handleCardClick : undefined}
     >
-      <CardImage
-        flipAnimation={flipAnimation}
-        src={questionMark}
-        altText="Question Mark"
-        // blockAnimation={blockAnimation}
-      />
-      <CardImage
-        flipAnimation={!flipAnimation}
-        src={imgSrc}
-        altText={altText}
-        // blockAnimation={blockAnimation}
-      />
+      {!isSuccess && !successCards.includes(altText) ? (
+        <>
+          <CardImage
+            flipAnimation={flipAnimation}
+            src={questionMark}
+            altText="Question Mark"
+          />
+          <CardImage
+            flipAnimation={!flipAnimation}
+            src={imgSrc}
+            altText={altText}
+          />
+        </>
+      ) : (
+        <CardImage src={tick} altText="Tick" />
+      )}
     </div>
   );
 }
 
 Card.propTypes = {
-  id: PropTypes.string,
+  key: PropTypes.string,
   imgSrc: PropTypes.string,
   altText: PropTypes.string,
   cardsFlipped: PropTypes.array,
   setCardFlipped: PropTypes.func,
   isMiss: PropTypes.bool,
   isSuccess: PropTypes.bool,
-  // successCards: PropTypes.array,
+  successCards: PropTypes.array,
 };
