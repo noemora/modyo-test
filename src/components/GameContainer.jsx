@@ -3,14 +3,22 @@ import CardList from './CardList';
 import Score from './Score';
 
 export default function GameContainer() {
-  const [moves, setMoves] = useState(0);
-  const [success, setSuccess] = useState(0);
-  const [miss, setMiss] = useState(0);
+  const [movesCounter, setMovesCounter] = useState(0);
+  const [successCounter, setSuccessCounter] = useState(0);
+  const [missCounter, setMissCounter] = useState(0);
 
   return (
     <>
-      <Score moves={moves} success={success} miss={miss} />
-      <CardList setMoves={setMoves} setSuccess={setSuccess} setMiss={setMiss} />
+      <Score
+        movesCount={movesCounter}
+        successCount={successCounter}
+        missCount={missCounter}
+      />
+      <CardList
+        setMovesCount={setMovesCounter}
+        setSuccessCount={setSuccessCounter}
+        setMissCount={setMissCounter}
+      />
     </>
   );
 }
