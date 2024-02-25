@@ -1,19 +1,17 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 import GameContainer from './GameContainer';
 import Welcome from './Welcome';
 
-export default function MainContainer() {
-  const [isValidName, setIsValidName] = useState(false);
-
+export default function MainContainer({ isValidName, setIsValidName }) {
   return (
     <div
       className={clsx(
-        isValidName && 'mt-8',
+        (isValidName || window.sessionStorage.getItem('userName')) && 'mt-8',
         'rounded-2xl bg-orange-700/50 p-6 backdrop-blur-sm'
       )}
     >
-      {!isValidName ? (
+      {!isValidName && !window.sessionStorage.getItem('userName') ? (
         <Welcome setIsValidName={setIsValidName} />
       ) : (
         <GameContainer />
@@ -21,3 +19,8 @@ export default function MainContainer() {
     </div>
   );
 }
+
+MainContainer.propTypes = {
+  isValidName: PropTypes.bool.isRequired,
+  setIsValidName: PropTypes.func.isRequired,
+};
