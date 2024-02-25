@@ -4,14 +4,15 @@ import GameContainer from './GameContainer';
 import Welcome from './Welcome';
 
 export default function MainContainer({ isValidName, setIsValidName }) {
+  const sessionUser = window.sessionStorage.getItem('userName');
   return (
     <div
       className={clsx(
-        (isValidName || window.sessionStorage.getItem('userName')) && 'mt-8',
+        (isValidName || sessionUser) && 'mt-8',
         'rounded-2xl bg-orange-700/50 p-6 backdrop-blur-sm'
       )}
     >
-      {!isValidName && !window.sessionStorage.getItem('userName') ? (
+      {!isValidName && !sessionUser ? (
         <Welcome setIsValidName={setIsValidName} />
       ) : (
         <GameContainer />
