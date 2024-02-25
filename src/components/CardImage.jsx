@@ -7,7 +7,7 @@ export default function CardImage({ flipAnimation, src, altText }) {
       className={clsx(
         !flipAnimation && 'animate-flip-in-x',
         flipAnimation && 'hidden',
-        'h-24 object-cover object-center'
+        'xs:h-14 xs:w-14 object-cover object-center sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-24 lg:w-24'
       )}
       src={src}
       alt={altText}

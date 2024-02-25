@@ -57,7 +57,7 @@ export default function CardList({
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="flex max-w-4xl flex-wrap justify-center gap-3">
+    <div className="grid max-w-4xl grid-cols-5 grid-rows-8 justify-center gap-1 sm:grid-cols-8 sm:grid-rows-5 md:gap-2 lg:gap-3">
       {cardList.map(({ fields }, index) => (
         <Card
           key={`${index}`}

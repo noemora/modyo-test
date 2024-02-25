@@ -8,8 +8,8 @@ export default function MainContainer({ isValidName, setIsValidName }) {
   return (
     <div
       className={clsx(
-        (isValidName || sessionUser) && 'mt-8',
-        'rounded-2xl bg-orange-700/50 p-6 backdrop-blur-sm'
+        (isValidName || sessionUser) && 'mt-4 sm:mt-0 md:mt-8 lg:mt-10',
+        'xs:p-8 mx-8 rounded-2xl bg-orange-700/50 p-3 shadow-lg backdrop-blur-sm md:mx-6 md:p-6 lg:mx-4'
       )}
     >
       {!isValidName && !sessionUser ? (

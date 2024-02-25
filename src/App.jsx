@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <NavBar isValidName={isValidName} />
-      <div className="flex h-screen w-full flex-col items-center justify-center bg-gradient-to-b from-amber-200 to-red-500">
+      <div className="flex h-screen w-full flex-col items-center justify-center bg-gradient-to-b from-amber-200 to-red-500 sm:h-screen">
         <MainContainer
           isValidName={isValidName}
           setIsValidName={setIsValidName}
