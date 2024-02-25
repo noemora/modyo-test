@@ -15,10 +15,13 @@ export default function Welcome({ setIsValidName }) {
 
   return (
     <div className="flex w-fit flex-col items-center gap-4 font-mono">
-      <h1 className="animate-flip-x text-5xl font-bold tracking-tight animate-delay-900">
+      <h1 className="xs:text-2xl animate-flip-x text-center font-bold tracking-tight animate-delay-900 sm:text-3xl md:text-4xl lg:text-5xl">
         Welcome to Memory Game!
       </h1>
-      <form className="flex min-w-80 flex-col gap-4" onSubmit={handleSubmit}>
+      <form
+        className="xs:text-xs flex w-full flex-col gap-2 sm:text-sm md:w-2/3 md:text-base lg:gap-4"
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           className="rounded bg-slate-100 px-3 py-1 outline-none hover:shadow-md"

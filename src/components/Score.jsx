@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 
 export default function Score({ movesCount, successCount, missCount }) {
   return (
-    <div className="mb-4 flex justify-center gap-x-10">
-      <div>Moves: {movesCount}</div>
-      <div>Successes: {successCount}</div>
-      <div>Misses: {missCount}</div>
+    <div className="mb-4 flex justify-center gap-x-8 text-sm sm:text-base md:text-lg lg:gap-x-10 lg:text-xl">
+      <p>Moves: {movesCount}</p>
+      <p>Successes: {successCount}</p>
+      <p>Misses: {missCount}</p>
     </div>
   );
 }

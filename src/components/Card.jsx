@@ -46,7 +46,7 @@ export default function Card({
       className={clsx(
         clicked && 'pointer-events-none',
         successCards.includes(altText) && 'pointer-events-none',
-        'h-24 cursor-pointer overflow-hidden rounded shadow-sm'
+        'xs:h-14 xs:w-14 cursor-pointer overflow-hidden rounded shadow-sm sm:h-16 sm:w-16 md:h-20 md:w-20 lg:h-24 lg:w-24'
       )}
       onClick={!blockAnimation ? handleCardClick : undefined}
     >
