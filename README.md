@@ -1,6 +1,6 @@
 # Modyo Test - Memory Game
 
-This is a public repo for hiring purposes @ Modyo.
+This is a public repo about the famous memory game built for hiring purposes @ Modyo.
 
 ## Tech Stack
 
